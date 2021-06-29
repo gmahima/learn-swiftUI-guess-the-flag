@@ -9,11 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack(alignment: /*@START_MENU_TOKEN@*/Alignment(horizontal: .center, vertical: .center)/*@END_MENU_TOKEN@*/, content: {
-            Color(.blue).ignoresSafeArea() //under
-            Color(red: 1, green: 1, blue: 1, opacity: 0.7).frame(width: 100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100, alignment: .leading)//places the view in an invisible frame.
-            /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/.background(Color.white) //background takes a view as arg returns the modified view. you can add Text as background too.
-        })
+        //btw x,y,z stacks are structs and we call the initializers with closures, conventionally, trailing closure. It is set to the content property of struct.
+        LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .top, endPoint: .bottom) //linear gradient, gradient are structs, lin grad conforms to view, but not Gradient.
     }
 }
 
