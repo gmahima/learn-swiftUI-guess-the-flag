@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var test = 4
+    @State var showAlert = false
     var body: some View {
-        //btw x,y,z stacks are structs and we call the initializers with closures, conventionally, trailing closure. It is set to the content property of struct.
-        LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .top, endPoint: .bottom) //linear gradient, gradient are structs, lin grad conforms to view, but not Gradient.
+        Button(action: {
+            test += 10
+            showAlert = true
+        }, label: {
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 2, content: {
+                Image(systemName: "pencil")
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                    Text("\(test)")
+                })
+                
+            })
+        }).alert(isPresented:  $showAlert, content: {
+            Alert(title: Text("Some alert"), message: Text("some alert message"), dismissButton: .default((Text("Ok"))))
+        })
     }
 }
 
